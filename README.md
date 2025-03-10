@@ -1,5 +1,5 @@
 # Catastrophic Overfitting Papers
-A complete list of papers on **Catastrophic Overfitting** submitted to arXiv.
+A complete list of papers on **Fast Adversarial Training** and **Catastrophic Overfitting** submitted to arXiv.
 You can find the papers and their titles, abstracts, authors, links, and dates stored in [this csv file](https://github.com/RamtinMoslemi/Catastrophic-Overfitting-Papers/blob/main/co_papers.csv).
 
 ## Paper Counts by Year
@@ -18,6 +18,18 @@ You can play with the notebook:
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/RamtinMoslemi/Catastrophic-Overfitting-Papers/blob/main/CO_Papers.ipynb) [![Open In kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/RamtinMoslemi/Catastrophic-Overfitting-Papers/main/CO_Papers.ipynb)
 
 
+# 2019
+## May
+### [Adversarially Robust Distillation](https://arxiv.org/abs/1905.09747)
+
+**Authors:**
+Micah Goldblum, Liam Fowl, Soheil Feizi, Tom Goldstein
+
+**Abstract:**
+Knowledge distillation is effective for producing small, high-performance neural networks for classification, but these small networks are vulnerable to adversarial attacks. This paper studies how adversarial robustness transfers from teacher to student during knowledge distillation. We find that a large amount of robustness may be inherited by the student even when distilled on only clean images. Second, we introduce Adversarially Robust Distillation (ARD) for distilling robustness onto student networks. In addition to producing small models with high test accuracy like conventional distillation, ARD also passes the superior robustness of large networks onto the student. In our experiments, we find that ARD student models decisively outperform adversarially trained networks of identical architecture in terms of robust accuracy, surpassing state-of-the-art methods on standard robustness benchmarks. Finally, we adapt recent fast adversarial training methods to ARD for accelerated robust distillation.
+       
+
+
 # 2020
 ## January
 ### [Fast is better than free: Revisiting adversarial training](https://arxiv.org/abs/2001.03994)
@@ -27,6 +39,28 @@ Eric Wong, Leslie Rice, J. Zico Kolter
 
 **Abstract:**
 Adversarial training, a method for learning robust deep networks, is typically assumed to be more expensive than traditional training due to the necessity of constructing adversarial examples via a first-order method like projected gradient decent (PGD). In this paper, we make the surprising discovery that it is possible to train empirically robust models using a much weaker and cheaper adversary, an approach that was previously believed to be ineffective, rendering the method no more costly than standard training in practice. Specifically, we show that adversarial training with the fast gradient sign method (FGSM), when combined with random initialization, is as effective as PGD-based training but has significantly lower cost. Furthermore we show that FGSM adversarial training can be further accelerated by using standard techniques for efficient training of deep networks, allowing us to learn a robust CIFAR10 classifier with 45% robust accuracy to PGD attacks with $ε=8/255$ in 6 minutes, and a robust ImageNet classifier with 43% robust accuracy at $ε=2/255$ in 12 hours, in comparison to past work based on "free" adversarial training which took 10 and 50 hours to reach the same respective thresholds. Finally, we identify a failure mode referred to as "catastrophic overfitting" which may have caused previous attempts to use FGSM adversarial training to fail. All code for reproducing the experiments in this paper as well as pretrained model weights are at https://github.com/locuslab/fast_adversarial.
+       
+
+
+## May
+### [Initializing Perturbations in Multiple Directions for Fast Adversarial Training](https://arxiv.org/abs/2005.07606)
+
+**Authors:**
+Xunguang Wang, Ship Peng Xu, Eric Ke Wang
+
+**Abstract:**
+Recent developments in the filed of Deep Learning have demonstrated that Deep Neural Networks(DNNs) are vulnerable to adversarial examples. Specifically, in image classification, an adversarial example can fool the well trained deep neural networks by adding barely imperceptible perturbations to clean images. Adversarial Training, one of the most direct and effective methods, minimizes the losses of perturbed-data to learn robust deep networks against adversarial attacks. It has been proven that using the fast gradient sign method (FGSM) can achieve Fast Adversarial Training. However, FGSM-based adversarial training may finally obtain a failed model because of overfitting to FGSM samples. In this paper, we proposed the Diversified Initialized Perturbations Adversarial Training (DIP-FAT) which involves seeking the initialization of the perturbation via enlarging the output distances of the target model in a random directions. Due to the diversity of random directions, the embedded fast adversarial training using FGSM increases the information from the adversary and reduces the possibility of overfitting. In addition to preventing overfitting, the extensive results show that our proposed DIP-FAT technique can also improve the accuracy of the clean data. The biggest advantage of DIP-FAT method: achieving the best banlance among clean-data, perturbed-data and efficiency.
+       
+
+
+## June
+### [Towards Understanding Fast Adversarial Training](https://arxiv.org/abs/2006.03089)
+
+**Authors:**
+Bai Li, Shiqi Wang, Suman Jana, Lawrence Carin
+
+**Abstract:**
+Current neural-network-based classifiers are susceptible to adversarial examples. The most empirically successful approach to defending against such adversarial examples is adversarial training, which incorporates a strong self-attack during training to enhance its robustness. This approach, however, is computationally expensive and hence is hard to scale up. A recent work, called fast adversarial training, has shown that it is possible to markedly reduce computation time without sacrificing significant performance. This approach incorporates simple self-attacks, yet it can only run for a limited number of training epochs, resulting in sub-optimal performance. In this paper, we conduct experiments to understand the behavior of fast adversarial training and show the key to its success is the ability to recover from overfitting to weak attacks. We then extend our findings to improve fast adversarial training, demonstrating superior robust accuracy to strong adversarial training, with much-reduced training time.
        
 
 
@@ -41,7 +75,27 @@ A recent line of work focused on making adversarial training computationally eff
        
 
 
+### [Fast Training of Deep Neural Networks Robust to Adversarial Perturbations](https://arxiv.org/abs/2007.03832)
+
+**Authors:**
+Justin Goodwin, Olivia Brown, Victoria Helus
+
+**Abstract:**
+Deep neural networks are capable of training fast and generalizing well within many domains. Despite their promising performance, deep networks have shown sensitivities to perturbations of their inputs (e.g., adversarial examples) and their learned feature representations are often difficult to interpret, raising concerns about their true capability and trustworthiness. Recent work in adversarial training, a form of robust optimization in which the model is optimized against adversarial examples, demonstrates the ability to improve performance sensitivities to perturbations and yield feature representations that are more interpretable. Adversarial training, however, comes with an increased computational cost over that of standard (i.e., nonrobust) training, rendering it impractical for use in large-scale problems. Recent work suggests that a fast approximation to adversarial training shows promise for reducing training time and maintaining robustness in the presence of perturbations bounded by the infinity norm. In this work, we demonstrate that this approach extends to the Euclidean norm and preserves the human-aligned feature representations that are common for robust models. Additionally, we show that using a distributed training scheme can further reduce the time to train robust deep networks. Fast adversarial training is a promising approach that will provide increased security and explainability in machine learning applications for which robust optimization was previously thought to be impractical.
+       
+
+
 ## October
+### [Efficient Robust Training via Backward Smoothing](https://arxiv.org/abs/2010.01278)
+
+**Authors:**
+Jinghui Chen, Yu Cheng, Zhe Gan, Quanquan Gu, Jingjing Liu
+
+**Abstract:**
+Adversarial training is so far the most effective strategy in defending against adversarial examples. However, it suffers from high computational costs due to the iterative adversarial attacks in each training step. Recent studies show that it is possible to achieve fast Adversarial Training by performing a single-step attack with random initialization. However, such an approach still lags behind state-of-the-art adversarial training algorithms on both stability and model robustness. In this work, we develop a new understanding towards Fast Adversarial Training, by viewing random initialization as performing randomized smoothing for better optimization of the inner maximization problem. Following this new perspective, we also propose a new initialization strategy, backward smoothing, to further improve the stability and model robustness over single-step robust training methods. Experiments on multiple benchmarks demonstrate that our method achieves similar model robustness as the original TRADES method while using much less training time ($\sim$3x improvement with the same training schedule).
+       
+
+
 ### [Understanding Catastrophic Overfitting in Single-step Adversarial Training](https://arxiv.org/abs/2010.01799)
 
 **Authors:**
@@ -86,6 +140,27 @@ Making deep neural networks robust to small adversarial noises has recently been
        
 
 
+### [Class-Aware Robust Adversarial Training for Object Detection](https://arxiv.org/abs/2103.16148)
+
+**Authors:**
+Pin-Chun Chen, Bo-Han Kung, Jun-Cheng Chen
+
+**Abstract:**
+Object detection is an important computer vision task with plenty of real-world applications; therefore, how to enhance its robustness against adversarial attacks has emerged as a crucial issue. However, most of the previous defense methods focused on the classification task and had few analysis in the context of the object detection task. In this work, to address the issue, we present a novel class-aware robust adversarial training paradigm for the object detection task. For a given image, the proposed approach generates an universal adversarial perturbation to simultaneously attack all the occurred objects in the image through jointly maximizing the respective loss for each object. Meanwhile, instead of normalizing the total loss with the number of objects, the proposed approach decomposes the total loss into class-wise losses and normalizes each class loss using the number of objects for the class. The adversarial training based on the class weighted loss can not only balances the influence of each class but also effectively and evenly improves the adversarial robustness of trained models for all the object classes as compared with the previous defense methods. Furthermore, with the recent development of fast adversarial training, we provide a fast version of the proposed algorithm which can be trained faster than the traditional adversarial training while keeping comparable performance. With extensive experiments on the challenging PASCAL-VOC and MS-COCO datasets, the evaluation results demonstrate that the proposed defense methods can effectively enhance the robustness of the object detection models.
+       
+
+
+## April
+### [Reliably fast adversarial training via latent adversarial perturbation](https://arxiv.org/abs/2104.01575)
+
+**Authors:**
+Geon Yeong Park, Sang Wan Lee
+
+**Abstract:**
+While multi-step adversarial training is widely popular as an effective defense method against strong adversarial attacks, its computational cost is notoriously expensive, compared to standard training. Several single-step adversarial training methods have been proposed to mitigate the above-mentioned overhead cost; however, their performance is not sufficiently reliable depending on the optimization setting. To overcome such limitations, we deviate from the existing input-space-based adversarial training regime and propose a single-step latent adversarial training method (SLAT), which leverages the gradients of latent representation as the latent adversarial perturbation. We demonstrate that the L1 norm of feature gradients is implicitly regularized through the adopted latent perturbation, thereby recovering local linearity and ensuring reliable performance, compared to the existing single-step adversarial training methods. Because latent perturbation is based on the gradients of the latent representations which can be obtained for free in the process of input gradients computation, the proposed method costs roughly the same time as the fast gradient sign method. Experiment results demonstrate that the proposed method, despite its structural simplicity, outperforms state-of-the-art accelerated adversarial training methods.
+       
+
+
 ## May
 ### [Understanding Catastrophic Overfitting in Adversarial Training](https://arxiv.org/abs/2105.02942)
 
@@ -105,6 +180,28 @@ Xiaosen Wang, Chuanbiao Song, Liwei Wang, Kun He
 
 **Abstract:**
 In the field of adversarial robustness, there is a common practice that adopts the single-step adversarial training for quickly developing adversarially robust models. However, the single-step adversarial training is most likely to cause catastrophic overfitting, as after a few training epochs it will be hard to generate strong adversarial examples to continuously boost the adversarial robustness. In this work, we aim to avoid the catastrophic overfitting by introducing multi-step adversarial examples during the single-step adversarial training. Then, to balance the large training overhead of generating multi-step adversarial examples, we propose a Multi-stage Optimization based Adversarial Training (MOAT) method that periodically trains the model on mixed benign examples, single-step adversarial examples, and multi-step adversarial examples stage by stage. In this way, the overall training overhead is reduced significantly, meanwhile, the model could avoid catastrophic overfitting. Extensive experiments on CIFAR-10 and CIFAR-100 datasets demonstrate that under similar amount of training overhead, the proposed MOAT exhibits better robustness than either single-step or multi-step adversarial training methods.
+       
+
+
+## August
+### [Adaptive perturbation adversarial training: based on reinforcement learning](https://arxiv.org/abs/2108.13239)
+
+**Authors:**
+Zhishen Nie, Ying Lin, Sp Ren, Lan Zhang
+
+**Abstract:**
+Adversarial training has become the primary method to defend against adversarial samples. However, it is hard to practically apply due to many shortcomings. One of the shortcomings of adversarial training is that it will reduce the recognition accuracy of normal samples. Adaptive perturbation adversarial training is proposed to alleviate this problem. It uses marginal adversarial samples that are close to the decision boundary but does not cross the decision boundary for adversarial training, which improves the accuracy of model recognition while maintaining the robustness of the model. However, searching for marginal adversarial samples brings additional computational costs. This paper proposes a method for finding marginal adversarial samples based on reinforcement learning, and combines it with the latest fast adversarial training technology, which effectively speeds up training process and reduces training costs.
+       
+
+
+## October
+### [Boosting Fast Adversarial Training with Learnable Adversarial Initialization](https://arxiv.org/abs/2110.05007)
+
+**Authors:**
+Xiaojun Jia, Yong Zhang, Baoyuan Wu, Jue Wang, Xiaochun Cao
+
+**Abstract:**
+Adversarial training (AT) has been demonstrated to be effective in improving model robustness by leveraging adversarial examples for training. However, most AT methods are in face of expensive time and computational cost for calculating gradients at multiple steps in generating adversarial examples. To boost training efficiency, fast gradient sign method (FGSM) is adopted in fast AT methods by calculating gradient only once. Unfortunately, the robustness is far from satisfactory. One reason may arise from the initialization fashion. Existing fast AT generally uses a random sample-agnostic initialization, which facilitates the efficiency yet hinders a further robustness improvement. Up to now, the initialization in fast AT is still not extensively explored. In this paper, we boost fast AT with a sample-dependent adversarial initialization, i.e., an output from a generative network conditioned on a benign image and its gradient information from the target network. As the generative network and the target network are optimized jointly in the training phase, the former can adaptively generate an effective initialization with respect to the latter, which motivates gradually improved robustness. Experimental evaluations on four benchmark databases demonstrate the superiority of our proposed method over state-of-the-art fast AT methods, as well as comparable robustness to advanced multi-step AT methods. The code is released at https://github.com//jiaxiaojunQAQ//FGSM-SDI.
        
 
 
@@ -130,6 +227,26 @@ Single-step adversarial training (AT) has received wide attention as it proved t
 
 
 ## December
+### [$\ell_\infty$-Robustness and Beyond: Unleashing Efficient Adversarial Training](https://arxiv.org/abs/2112.00378)
+
+**Authors:**
+Hadi M. Dolatabadi, Sarah Erfani, Christopher Leckie
+
+**Abstract:**
+Neural networks are vulnerable to adversarial attacks: adding well-crafted, imperceptible perturbations to their input can modify their output. Adversarial training is one of the most effective approaches in training robust models against such attacks. However, it is much slower than vanilla training of neural networks since it needs to construct adversarial examples for the entire training data at every iteration, hampering its effectiveness. Recently, Fast Adversarial Training (FAT) was proposed that can obtain robust models efficiently. However, the reasons behind its success are not fully understood, and more importantly, it can only train robust models for $\ell_\infty$-bounded attacks as it uses FGSM during training. In this paper, by leveraging the theory of coreset selection, we show how selecting a small subset of training data provides a general, more principled approach toward reducing the time complexity of robust training. Unlike existing methods, our approach can be adapted to a wide variety of training objectives, including TRADES, $\ell_p$-PGD, and Perceptual Adversarial Training (PAT). Our experimental results indicate that our approach speeds up adversarial training by 2-3 times while experiencing a slight reduction in the clean and robust accuracy.
+       
+
+
+### [On the Impact of Hard Adversarial Instances on Overfitting in Adversarial Training](https://arxiv.org/abs/2112.07324)
+
+**Authors:**
+Chen Liu, Zhichao Huang, Mathieu Salzmann, Tong Zhang, Sabine Süsstrunk
+
+**Abstract:**
+Adversarial training is a popular method to robustify models against adversarial attacks. However, it exhibits much more severe overfitting than training on clean inputs. In this work, we investigate this phenomenon from the perspective of training instances, i.e., training input-target pairs. Based on a quantitative metric measuring the relative difficulty of an instance in the training set, we analyze the model's behavior on training instances of different difficulty levels. This lets us demonstrate that the decay in generalization performance of adversarial training is a result of fitting hard adversarial instances. We theoretically verify our observations for both linear and general nonlinear models, proving that models trained on hard instances have worse generalization performance than ones trained on easy instances, and that this generalization gap increases with the size of the adversarial budget. Finally, we investigate solutions to mitigate adversarial overfitting in several scenarios, including fast adversarial training and fine-tuning a pretrained model with additional data. Our results demonstrate that using training data adaptively improves the model's robustness.
+       
+
+
 ### [Revisiting and Advancing Fast Adversarial Training Through The Lens of Bi-Level Optimization](https://arxiv.org/abs/2112.12376)
 
 **Authors:**
@@ -223,6 +340,16 @@ Xiaojun Jia, Yong Zhang, Xingxing Wei, Baoyuan Wu, Ke Ma, Jue Wang, Xiaochun Cao
 
 **Abstract:**
 Fast adversarial training (FAT) effectively improves the efficiency of standard adversarial training (SAT). However, initial FAT encounters catastrophic overfitting, i.e.,the robust accuracy against adversarial attacks suddenly and dramatically decreases. Though several FAT variants spare no effort to prevent overfitting, they sacrifice much calculation cost. In this paper, we explore the difference between the training processes of SAT and FAT and observe that the attack success rate of adversarial examples (AEs) of FAT gets worse gradually in the late training stage, resulting in overfitting. The AEs are generated by the fast gradient sign method (FGSM) with a zero or random initialization. Based on the observation, we propose a prior-guided FGSM initialization method to avoid overfitting after investigating several initialization strategies, improving the quality of the AEs during the whole training process. The initialization is formed by leveraging historically generated AEs without additional calculation cost. We further provide a theoretical analysis for the proposed initialization method. We also propose a simple yet effective regularizer based on the prior-guided initialization,i.e., the currently generated perturbation should not deviate too much from the prior-guided initialization. The regularizer adopts both historical and current adversarial perturbations to guide the model learning. Evaluations on four datasets demonstrate that the proposed method can prevent catastrophic overfitting and outperform state-of-the-art FAT methods. The code is released at https://github.com/jiaxiaojunQAQ/FGSM-PGI.
+       
+
+
+### [Towards Efficient Adversarial Training on Vision Transformers](https://arxiv.org/abs/2207.10498)
+
+**Authors:**
+Boxi Wu, Jindong Gu, Zhifeng Li, Deng Cai, Xiaofei He, Wei Liu
+
+**Abstract:**
+Vision Transformer (ViT), as a powerful alternative to Convolutional Neural Network (CNN), has received much attention. Recent work showed that ViTs are also vulnerable to adversarial examples like CNNs. To build robust ViTs, an intuitive way is to apply adversarial training since it has been shown as one of the most effective ways to accomplish robust CNNs. However, one major limitation of adversarial training is its heavy computational cost. The self-attention mechanism adopted by ViTs is a computationally intense operation whose expense increases quadratically with the number of input patches, making adversarial training on ViTs even more time-consuming. In this work, we first comprehensively study fast adversarial training on a variety of vision transformers and illustrate the relationship between the efficiency and robustness. Then, to expediate adversarial training on ViTs, we propose an efficient Attention Guided Adversarial Training mechanism. Specifically, relying on the specialty of self-attention, we actively remove certain patch embeddings of each layer with an attention-guided dropping strategy during adversarial training. The slimmed self-attention modules accelerate the adversarial training on ViTs significantly. With only 65\% of the fast adversarial training time, we match the state-of-the-art results on the challenging ImageNet benchmark.
        
 
 
@@ -363,6 +490,16 @@ Catastrophic overfitting (CO) in single-step adversarial training (AT) results i
        
 
 
+### [Fast Adversarial Training against Textual Adversarial Attacks](https://arxiv.org/abs/2401.12461)
+
+**Authors:**
+Yichen Yang, Xin Liu, Kun He
+
+**Abstract:**
+Many adversarial defense methods have been proposed to enhance the adversarial robustness of natural language processing models. However, most of them introduce additional pre-set linguistic knowledge and assume that the synonym candidates used by attackers are accessible, which is an ideal assumption. We delve into adversarial training in the embedding space and propose a Fast Adversarial Training (FAT) method to improve the model robustness in the synonym-unaware scenario from the perspective of single-step perturbation generation and perturbation initialization. Based on the observation that the adversarial perturbations crafted by single-step and multi-step gradient ascent are similar, FAT uses single-step gradient ascent to craft adversarial examples in the embedding space to expedite the training process. Based on the observation that the perturbations generated on the identical training sample in successive epochs are similar, FAT fully utilizes historical information when initializing the perturbation. Extensive experiments demonstrate that FAT significantly boosts the robustness of BERT models in the synonym-unaware scenario, and outperforms the defense baselines under various attacks with character-level and word-level modifications.
+       
+
+
 ## February
 ### [Characterizing Overfitting in Kernel Ridgeless Regression Through the Eigenspectrum](https://arxiv.org/abs/2402.01297)
 
@@ -406,6 +543,16 @@ Pre-trained large text-to-image (T2I) models with an appropriate text prompt has
 
 
 ## May
+### [Efficient Adversarial Training in LLMs with Continuous Attacks](https://arxiv.org/abs/2405.15589)
+
+**Authors:**
+Sophie Xhonneux, Alessandro Sordoni, Stephan Günnemann, Gauthier Gidel, Leo Schwinn
+
+**Abstract:**
+Large language models (LLMs) are vulnerable to adversarial attacks that can bypass their safety guardrails. In many domains, adversarial training has proven to be one of the most promising methods to reliably improve robustness against such attacks. Yet, in the context of LLMs, current methods for adversarial training are hindered by the high computational costs required to perform discrete adversarial attacks at each training iteration. We address this problem by instead calculating adversarial attacks in the continuous embedding space of the LLM, which is orders of magnitudes more efficient. We propose a fast adversarial training algorithm (C-AdvUL) composed of two losses: the first makes the model robust on continuous embedding attacks computed on an adversarial behaviour dataset; the second ensures the usefulness of the final model by fine-tuning on utility data. Moreover, we introduce C-AdvIPO, an adversarial variant of IPO that does not require utility data for adversarially robust alignment. Our empirical evaluation on five models from different families (Gemma, Phi3, Mistral, Zephyr, Llama2) and at different scales (2B, 3.8B, 7B) shows that both algorithms substantially enhance LLM robustness against discrete attacks (GCG, AutoDAN, PAIR), while maintaining utility. Our results demonstrate that robustness to continuous perturbations can extrapolate to discrete threat models. Thereby, we present a path toward scalable adversarial training algorithms for robustly aligning LLMs.
+       
+
+
 ### [Layer-Aware Analysis of Catastrophic Overfitting: Revealing the Pseudo-Robust Shortcut Dependency](https://arxiv.org/abs/2405.16262)
 
 **Authors:**
@@ -438,6 +585,17 @@ While adversarial training is an effective defense method against adversarial at
        
 
 
+## September
+### [Improving Fast Adversarial Training via Self-Knowledge Guidance](https://arxiv.org/abs/2409.17589)
+
+**Authors:**
+Chengze Jiang, Junkai Wang, Minjing Dong, Jie Gui, Xinli Shi, Yuan Cao, Yuan Yan Tang, James Tin-Yau Kwok
+
+**Abstract:**
+Adversarial training has achieved remarkable advancements in defending against adversarial attacks. Among them, fast adversarial training (FAT) is gaining attention for its ability to achieve competitive robustness with fewer computing resources. Existing FAT methods typically employ a uniform strategy that optimizes all training data equally without considering the influence of different examples, which leads to an imbalanced optimization. However, this imbalance remains unexplored in the field of FAT. In this paper, we conduct a comprehensive study of the imbalance issue in FAT and observe an obvious class disparity regarding their performances. This disparity could be embodied from a perspective of alignment between clean and robust accuracy. Based on the analysis, we mainly attribute the observed misalignment and disparity to the imbalanced optimization in FAT, which motivates us to optimize different training data adaptively to enhance robustness. Specifically, we take disparity and misalignment into consideration. First, we introduce self-knowledge guided regularization, which assigns differentiated regularization weights to each class based on its training state, alleviating class disparity. Additionally, we propose self-knowledge guided label relaxation, which adjusts label relaxation according to the training accuracy, alleviating the misalignment and improving robustness. By combining these methods, we formulate the Self-Knowledge Guided FAT (SKG-FAT), leveraging naturally generated knowledge during training to enhance the adversarial robustness without compromising training efficiency. Extensive experiments on four standard datasets demonstrate that the SKG-FAT improves the robustness and preserves competitive clean accuracy, outperforming the state-of-the-art methods.
+       
+
+
 ## October
 ### [On Using Certified Training towards Empirical Robustness](https://arxiv.org/abs/2410.01617)
 
@@ -457,6 +615,18 @@ Yiqian Yang, Xihua Zhu, Fan Zhang
 
 **Abstract:**
 Adversarial training with Normalizing Flow (NF) models is an emerging research area aimed at improving model robustness through adversarial samples. In this study, we focus on applying adversarial training to NF models for gravitational wave parameter estimation. We propose an adaptive epsilon method for Fast Gradient Sign Method (FGSM) adversarial training, which dynamically adjusts perturbation strengths based on gradient magnitudes using logarithmic scaling. Our hybrid architecture, combining ResNet and Inverse Autoregressive Flow, reduces the Negative Log Likelihood (NLL) loss by 47\% under FGSM attacks compared to the baseline model, while maintaining an NLL of 4.2 on clean data (only 5\% higher than the baseline). For perturbation strengths between 0.01 and 0.1, our model achieves an average NLL of 5.8, outperforming both fixed-epsilon (NLL: 6.7) and progressive-epsilon (NLL: 7.2) methods. Under stronger Projected Gradient Descent attacks with perturbation strength of 0.05, our model maintains an NLL of 6.4, demonstrating superior robustness while avoiding catastrophic overfitting.
+       
+
+
+# 2025
+## February
+### [Fast Adversarial Training against Sparse Attacks Requires Loss Smoothing](https://arxiv.org/abs/2502.21041)
+
+**Authors:**
+Xuyang Zhong, Yixiao Huang, Chen Liu
+
+**Abstract:**
+This paper studies fast adversarial training against sparse adversarial perturbations bounded by $l_0$ norm. We demonstrate the challenges of employing $1$-step attacks on $l_0$ bounded perturbations for fast adversarial training, including degraded performance and the occurrence of catastrophic overfitting (CO). We highlight that CO in $l_0$ adversarial training is caused by sub-optimal perturbation locations of $1$-step attack. Theoretical and empirical analyses reveal that the loss landscape of $l_0$ adversarial training is more craggy compared to its $l_\infty$, $l_2$ and $l_1$ counterparts. Moreover, we corroborate that the craggy loss landscape can aggravate CO. To address these issues, we propose Fast-LS-$l_0$ that incorporates soft labels and the trade-off loss function to smooth the adversarial loss landscape. Extensive experiments demonstrate our method can overcome the challenge of catastrophic overfitting, achieve state-of-the-art performance, and narrow down the performance gap between $1$-step and multi-step adversarial training against sparse attacks.
        
 
 
