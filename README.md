@@ -42,6 +42,38 @@ Adversarial training, a method for learning robust deep networks, is typically a
        
 
 
+## February
+### [Regularizers for Single-step Adversarial Training](https://arxiv.org/abs/2002.00614)
+
+**Authors:**
+B. S. Vivek, R. Venkatesh Babu
+
+**Abstract:**
+The progress in the last decade has enabled machine learning models to achieve impressive performance across a wide range of tasks in Computer Vision. However, a plethora of works have demonstrated the susceptibility of these models to adversarial samples. Adversarial training procedure has been proposed to defend against such adversarial attacks. Adversarial training methods augment mini-batches with adversarial samples, and typically single-step (non-iterative) methods are used for generating these adversarial samples. However, models trained using single-step adversarial training converge to degenerative minima where the model merely appears to be robust. The pseudo robustness of these models is due to the gradient masking effect. Although multi-step adversarial training helps to learn robust models, they are hard to scale due to the use of iterative methods for generating adversarial samples. To address these issues, we propose three different types of regularizers that help to learn robust models using single-step adversarial training methods. The proposed regularizers mitigate the effect of gradient masking by harnessing on properties that differentiate a robust model from that of a pseudo robust model. Performance of models trained using the proposed regularizers is on par with models trained using computationally expensive multi-step adversarial training methods.
+       
+
+
+### [Using Single-Step Adversarial Training to Defend Iterative Adversarial Examples](https://arxiv.org/abs/2002.09632)
+
+**Authors:**
+Guanxiong Liu, Issa Khalil, Abdallah Khreishah
+
+**Abstract:**
+Adversarial examples have become one of the largest challenges that machine learning models, especially neural network classifiers, face. These adversarial examples break the assumption of attack-free scenario and fool state-of-the-art (SOTA) classifiers with insignificant perturbations to human. So far, researchers achieved great progress in utilizing adversarial training as a defense. However, the overwhelming computational cost degrades its applicability and little has been done to overcome this issue. Single-Step adversarial training methods have been proposed as computationally viable solutions, however they still fail to defend against iterative adversarial examples. In this work, we first experimentally analyze several different SOTA defense methods against adversarial examples. Then, based on observations from experiments, we propose a novel single-step adversarial training method which can defend against both single-step and iterative adversarial examples. Lastly, through extensive evaluations, we demonstrate that our proposed method outperforms the SOTA single-step and iterative adversarial training defense. Compared with ATDA (single-step method) on CIFAR10 dataset, our proposed method achieves 35.67% enhancement in test accuracy and 19.14% reduction in training time. When compared with methods that use BIM or Madry examples (iterative methods) on CIFAR10 dataset, it saves up to 76.03% in training time with less than 3.78% degeneration in test accuracy.
+       
+
+
+## April
+### [Single-step Adversarial training with Dropout Scheduling](https://arxiv.org/abs/2004.08628)
+
+**Authors:**
+Vivek B. S., R. Venkatesh Babu
+
+**Abstract:**
+Deep learning models have shown impressive performance across a spectrum of computer vision applications including medical diagnosis and autonomous driving. One of the major concerns that these models face is their susceptibility to adversarial attacks. Realizing the importance of this issue, more researchers are working towards developing robust models that are less affected by adversarial attacks. Adversarial training method shows promising results in this direction. In adversarial training regime, models are trained with mini-batches augmented with adversarial samples. Fast and simple methods (e.g., single-step gradient ascent) are used for generating adversarial samples, in order to reduce computational complexity. It is shown that models trained using single-step adversarial training method (adversarial samples are generated using non-iterative method) are pseudo robust. Further, this pseudo robustness of models is attributed to the gradient masking effect. However, existing works fail to explain when and why gradient masking effect occurs during single-step adversarial training. In this work, (i) we show that models trained using single-step adversarial training method learn to prevent the generation of single-step adversaries, and this is due to over-fitting of the model during the initial stages of training, and (ii) to mitigate this effect, we propose a single-step adversarial training method with dropout scheduling. Unlike models trained using existing single-step adversarial training methods, models trained using the proposed single-step adversarial training method are robust against both single-step and multi-step adversarial attacks, and the performance is on par with models trained using computationally expensive multi-step adversarial training methods, in white-box and black-box settings.
+       
+
+
 ## May
 ### [Initializing Perturbations in Multiple Directions for Fast Adversarial Training](https://arxiv.org/abs/2005.07606)
 
@@ -180,6 +212,16 @@ Xiaosen Wang, Chuanbiao Song, Liwei Wang, Kun He
 
 **Abstract:**
 In the field of adversarial robustness, there is a common practice that adopts the single-step adversarial training for quickly developing adversarially robust models. However, the single-step adversarial training is most likely to cause catastrophic overfitting, as after a few training epochs it will be hard to generate strong adversarial examples to continuously boost the adversarial robustness. In this work, we aim to avoid the catastrophic overfitting by introducing multi-step adversarial examples during the single-step adversarial training. Then, to balance the large training overhead of generating multi-step adversarial examples, we propose a Multi-stage Optimization based Adversarial Training (MOAT) method that periodically trains the model on mixed benign examples, single-step adversarial examples, and multi-step adversarial examples stage by stage. In this way, the overall training overhead is reduced significantly, meanwhile, the model could avoid catastrophic overfitting. Extensive experiments on CIFAR-10 and CIFAR-100 datasets demonstrate that under similar amount of training overhead, the proposed MOAT exhibits better robustness than either single-step or multi-step adversarial training methods.
+       
+
+
+### [Single-Step Adversarial Training for Semantic Segmentation](https://arxiv.org/abs/2106.15998)
+
+**Authors:**
+Daniel Wiens, Barbara Hammer
+
+**Abstract:**
+Even though deep neural networks succeed on many different tasks including semantic segmentation, they lack on robustness against adversarial examples. To counteract this exploit, often adversarial training is used. However, it is known that adversarial training with weak adversarial attacks (e.g. using the Fast Gradient Method) does not improve the robustness against stronger attacks. Recent research shows that it is possible to increase the robustness of such single-step methods by choosing an appropriate step size during the training. Finding such a step size, without increasing the computational effort of single-step adversarial training, is still an open challenge. In this work we address the computationally particularly demanding task of semantic segmentation and propose a new step size control algorithm that increases the robustness of single-step adversarial training. The proposed algorithm does not increase the computational effort of single-step adversarial training considerably and also simplifies training, because it is free of meta-parameter. We show that the robustness of our approach can compete with multi-step adversarial training on two popular benchmarks for semantic segmentation.
        
 
 
@@ -376,6 +418,17 @@ There has been a recent surge in single-step adversarial training as it shows ro
        
 
 
+## November
+### [The Enemy of My Enemy is My Friend: Exploring Inverse Adversaries for Improving Adversarial Training](https://arxiv.org/abs/2211.00525)
+
+**Authors:**
+Junhao Dong, Seyed-Mohsen Moosavi-Dezfooli, Jianhuang Lai, Xiaohua Xie
+
+**Abstract:**
+Although current deep learning techniques have yielded superior performance on various computer vision tasks, yet they are still vulnerable to adversarial examples. Adversarial training and its variants have been shown to be the most effective approaches to defend against adversarial examples. These methods usually regularize the difference between output probabilities for an adversarial and its corresponding natural example. However, it may have a negative impact if the model misclassifies a natural example. To circumvent this issue, we propose a novel adversarial training scheme that encourages the model to produce similar outputs for an adversarial example and its ``inverse adversarial'' counterpart. These samples are generated to maximize the likelihood in the neighborhood of natural examples. Extensive experiments on various vision datasets and architectures demonstrate that our training method achieves state-of-the-art robustness as well as natural accuracy. Furthermore, using a universal version of inverse adversarial examples, we improve the performance of single-step adversarial training techniques at a low computational cost.
+       
+
+
 # 2023
 ## February
 ### [Investigating Catastrophic Overfitting in Fast Adversarial Training: A Self-fitting Perspective](https://arxiv.org/abs/2302.11963)
@@ -454,6 +507,16 @@ Yaohua Liu, Jiaxin Gao, Xianghao Jiao, Zhu Liu, Xin Fan, Risheng Liu
 
 **Abstract:**
 Adversarial Training (AT), pivotal in fortifying the robustness of deep learning models, is extensively adopted in practical applications. However, prevailing AT methods, relying on direct iterative updates for target model's defense, frequently encounter obstacles such as unstable training and catastrophic overfitting. In this context, our work illuminates the potential of leveraging the target model's historical states as a proxy to provide effective initialization and defense prior, which results in a general proxy guided defense framework, `LAST' ({\bf L}earn from the P{\bf ast}). Specifically, LAST derives response of the proxy model as dynamically learned fast weights, which continuously corrects the update direction of the target model. Besides, we introduce a self-distillation regularized defense objective, ingeniously designed to steer the proxy model's update trajectory without resorting to external teacher models, thereby ameliorating the impact of catastrophic overfitting on performance. Extensive experiments and ablation studies showcase the framework's efficacy in markedly improving model robustness (e.g., up to 9.2\% and 20.3\% enhancement in robust accuracy on CIFAR10 and CIFAR100 datasets, respectively) and training stability. These improvements are consistently observed across various model architectures, larger datasets, perturbation sizes, and attack modalities, affirming LAST's ability to consistently refine both single-step and multi-step AT strategies. The code will be available at~\url{https://github.com/callous-youth/LAST}.
+       
+
+
+### [Fast Propagation is Better: Accelerating Single-Step Adversarial Training via Sampling Subnetworks](https://arxiv.org/abs/2310.15444)
+
+**Authors:**
+Xiaojun Jia, Jianshu Li, Jindong Gu, Yang Bai, Xiaochun Cao
+
+**Abstract:**
+Adversarial training has shown promise in building robust models against adversarial examples. A major drawback of adversarial training is the computational overhead introduced by the generation of adversarial examples. To overcome this limitation, adversarial training based on single-step attacks has been explored. Previous work improves the single-step adversarial training from different perspectives, e.g., sample initialization, loss regularization, and training strategy. Almost all of them treat the underlying model as a black box. In this work, we propose to exploit the interior building blocks of the model to improve efficiency. Specifically, we propose to dynamically sample lightweight subnetworks as a surrogate model during training. By doing this, both the forward and backward passes can be accelerated for efficient adversarial training. Besides, we provide theoretical analysis to show the model robustness can be improved by the single-step adversarial training with sampled subnetworks. Furthermore, we propose a novel sampling strategy where the sampling varies from layer to layer and from iteration to iteration. Compared with previous methods, our method not only reduces the training cost but also achieves better model robustness. Evaluations on a series of popular datasets demonstrate the effectiveness of the proposed FB-Better. Our code has been released at https://github.com/jiaxiaojunQAQ/FP-Better.
        
 
 
@@ -620,6 +683,16 @@ Adversarial training with Normalizing Flow (NF) models is an emerging research a
 
 # 2025
 ## February
+### [RoMA: Robust Malware Attribution via Byte-level Adversarial Training with Global Perturbations and Adversarial Consistency Regularization](https://arxiv.org/abs/2502.07492)
+
+**Authors:**
+Yuxia Sun, Huihong Chen, Jingcai Guo, Aoxiang Sun, Zhetao Li, Haolin Liu
+
+**Abstract:**
+Attributing APT (Advanced Persistent Threat) malware to their respective groups is crucial for threat intelligence and cybersecurity. However, APT adversaries often conceal their identities, rendering attribution inherently adversarial. Existing machine learning-based attribution models, while effective, remain highly vulnerable to adversarial attacks. For example, the state-of-the-art byte-level model MalConv sees its accuracy drop from over 90% to below 2% under PGD (projected gradient descent) attacks. Existing gradient-based adversarial training techniques for malware detection or image processing were applied to malware attribution in this study, revealing that both robustness and training efficiency require significant improvement. To address this, we propose RoMA, a novel single-step adversarial training approach that integrates global perturbations to generate enhanced adversarial samples and employs adversarial consistency regularization to improve representation quality and resilience. A novel APT malware dataset named AMG18, with diverse samples and realistic class imbalances, is introduced for evaluation. Extensive experiments show that RoMA significantly outperforms seven competing methods in both adversarial robustness (e.g., achieving over 80% robust accuracy-more than twice that of the next-best method under PGD attacks) and training efficiency (e.g., more than twice as fast as the second-best method in terms of accuracy), while maintaining superior standard accuracy in non-adversarial scenarios.
+       
+
+
 ### [Fast Adversarial Training against Sparse Attacks Requires Loss Smoothing](https://arxiv.org/abs/2502.21041)
 
 **Authors:**
